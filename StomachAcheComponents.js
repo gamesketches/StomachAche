@@ -50,7 +50,6 @@ Crafty.c("Ground", {
 	originX: 0,
 	side: true,
 	init: function() {
-		alert();
 		this.addComponent("2D,Canvas,Color");
 		this.color("#FF0000");
 		this.bind("EnterFrame", this.coolDown);
