@@ -8,14 +8,13 @@ window.onload = (function() {
 
 	Crafty.scene("gameplay", function() {
 		var player = Crafty.e("Player").attr({x: 500, y: 300, w: 50, h: 50});
-		Crafty.e("Ground").attr({x: 0, y: 500, w: 2000, h: 100});
-		Crafty.e("Target").attr({x: 700, y: 450, w: 50, h: 50});
-		Crafty.bind("EnterFrame", function() {
-
-			var vpx = (player.x - WIDTH / 2);
-			// Sets the viewport to the position derived from the previous calculation
-			Crafty.viewport.x = -vpx;
-		});
+		var ground = Crafty.e("Ground").attr({x: 0, y: 500, w: 2000, h: 100});
+		ground.direction = 0;
+		Crafty.e("Target").attr({x: 100, y: 200, w: 50, h: 50});
+		var platform = Crafty.e("Ground").attr({x: 100, y: 300, w: 200, h: 50});
+		var otherGround = Crafty.e("Ground").attr({x: 900, y: 400, w: 100, h: 200});
+		otherGround.direction = 0;
+		
 	});
 	Crafty.scene("gameOver", function() {
 		var textHandler = Crafty.e("2D,DOM,Text,Keyboard").attr({x: 500, y:300}).text("Relief :)\nPress 'r' to restart").textColor("#FF0000");
